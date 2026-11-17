@@ -1,0 +1,492 @@
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL (Estilo UTP)
+   ========================================= */
+:root {
+  --color-primario: #d91424;         /* Rojo institucional UTP */
+  --color-primario-hover: #b5101d;
+  --color-secundario: #111827;       /* Gris muy oscuro / negro elegante */
+  --color-texto: #222222;            /* Texto principal de alta legibilidad */
+  --color-texto-claro: #555555;      /* Texto secundario */
+  --color-fondo: #f8f9fa;            /* Fondo gris claro institucional */
+  --color-blanco: #ffffff;
+  --color-gris-borde: #e0e0e0;
+  --color-gris-claro: #f1f3f5;
+  
+  --fuente-principal: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --fuente-titulos: 'Inter', sans-serif; /* Estilo corporativo/institucional limpio */
+  
+  --transicion: all 0.25s ease-in-out;
+  --sombra-suave: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --sombra-tarjeta: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.7;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.padding-xl {
+  padding: 3.5rem 0;
+}
+
+/* =========================================
+   2. ENCABEZADO Y NAVEGACIÓN INSTITUCIONAL
+   ========================================= */
+.encabezado {
+  background-color: var(--color-blanco);
+  border-bottom: 2px solid var(--color-primario);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--sombra-suave);
+}
+
+.encabezado_interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 85px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo_imagen {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.logo_texto {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-secundario);
+  letter-spacing: -0.5px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-secundario);
+  cursor: pointer;
+}
+
+.menu_lista {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.menu_enlace {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-secundario);
+  transition: var(--transicion);
+  padding: 0.5rem 0;
+}
+
+.menu_enlace:hover {
+  color: var(--color-primario);
+}
+
+.menu_flecha {
+  font-size: 0.75rem;
+  margin-left: 2px;
+}
+
+/* Submenú desplegable corporativo */
+.menu_item_desplegable {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-blanco);
+  min-width: 200px;
+  box-shadow: var(--sombra-tarjeta);
+  border-radius: 4px;
+  border-top: 3px solid var(--color-primario);
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: var(--transicion);
+}
+
+.menu_item_desplegable:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.submenu_enlace {
+  display: block;
+  padding: 0.6rem 1.25rem;
+  color: var(--color-texto);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transicion);
+}
+
+.submenu_enlace:hover {
+  background-color: var(--color-gris-claro);
+  color: var(--color-primario);
+  padding-left: 1.5rem;
+}
+
+/* Redes sociales superiores */
+.redes-sociales {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.redes-sociales a {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--color-gris-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-texto-claro);
+  transition: var(--transicion);
+  font-size: 0.9rem;
+}
+
+.redes-sociales a:hover {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+/* =========================================
+   3. CONTENIDO PRINCIPAL: POLÍTICA DE PRIVACIDAD
+   ========================================= */
+.politica_encabezado {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-gris-borde);
+  padding-bottom: 1.5rem;
+}
+
+.politica_encabezado h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-secundario);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.politica_fecha {
+  color: var(--color-texto-claro);
+  font-size: 0.9rem;
+}
+
+/* Contenedor central formal estilo documento institucional */
+.politica_contenido {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: var(--color-blanco);
+  padding: 3rem 3.5rem;
+  border-radius: 8px;
+  box-shadow: var(--sombra-suave);
+  border: 1px solid var(--color-gris-borde);
+}
+
+.politica_contenido p {
+  margin-bottom: 1.25rem;
+  color: var(--color-texto);
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Estilo formal para secciones romanas (I. OBJETIVO, etc.) */
+.politica_contenido h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.politica_contenido h4 {
+  font-size: 1rem;
+  color: var(--color-primario);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 650;
+}
+
+.politica_contenido ul {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.politica_contenido li {
+  margin-bottom: 0.5rem;
+  color: var(--color-texto);
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+.form-link {
+  color: var(--color-primario);
+  font-weight: 600;
+  text-decoration: underline;
+  transition: var(--transicion);
+}
+
+.form-link:hover {
+  color: var(--color-primario-hover);
+}
+
+/* Botones institucionales */
+.boton {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: var(--transicion);
+  font-family: var(--fuente-principal);
+  font-size: 0.95rem;
+}
+
+.boton_primario {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+.boton_primario:hover {
+  background-color: var(--color-primario-hover);
+}
+
+.politica_volver {
+  display: block;
+  width: fit-content;
+  margin: 3rem auto 0 auto;
+}
+
+/* =========================================
+   4. PIE DE PÁGINA (FOOTER INSTITUCIONAL)
+   ========================================= */
+.pie_pagina {
+  background-color: var(--color-secundario);
+  color: #9ca3af;
+  padding-top: 4rem;
+  border-top: 5px solid var(--color-primario);
+}
+
+.pie_pagina_grilla {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #1f2937;
+}
+
+.imagen_logo_marca {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.pie_pagina_logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.pie_pagina_nombre_marca {
+  font-size: 1.35rem;
+  color: var(--color-blanco);
+  font-weight: 800;
+}
+
+.pie_pagina_columna h3 {
+  color: var(--color-blanco);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pie_pagina_columna p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Formulario del footer */
+.formulario_noticias {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.formulario_noticias_input {
+  padding: 0.7rem 0.9rem;
+  border-radius: 4px;
+  border: 1px solid #374151;
+  background-color: #1f2937;
+  color: var(--color-blanco);
+  font-family: var(--fuente-principal);
+  font-size: 0.9rem;
+}
+
+.formulario_noticias_input::placeholder {
+  color: #9ca3af;
+}
+
+.formulario_noticias_input:focus {
+  outline: none;
+  border-color: var(--color-primario);
+}
+
+.pie_pagina_inferior {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* =========================================
+   5. BOTÓN SCROLL TOP
+   ========================================= */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: var(--color-secundario);
+  color: var(--color-blanco);
+  border: 2px solid var(--color-primario);
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra-tarjeta);
+  transition: var(--transicion);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#scrollTopBtn:hover {
+  background-color: var(--color-primario);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   6. RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 968px) {
+  .pie_pagina_grilla {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .redes-sociales {
+    display: none;
+  }
+
+  .menu {
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-tarjeta);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .menu.activo {
+    max-height: 380px;
+  }
+
+  .menu_lista {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+  }
+
+  .submenu {
+    position: static;
+    box-shadow: none;
+    padding-left: 1rem;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+
+  .politica_contenido {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .politica_encabezado h2 {
+    font-size: 1.8rem;
+  }
+
+  .pie_pagina_grilla {
+    grid-template-columns: 1fr;
+  }
+}
